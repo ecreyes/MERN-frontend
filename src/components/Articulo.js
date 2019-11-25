@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Articulo extends React.Component {
     render() {
@@ -7,7 +8,7 @@ class Articulo extends React.Component {
             <div className="card card-body">
                 <h5 className="card-title">{titulo}</h5>
                 <p className="card-text">{cuerpo}</p>
-                <button className="btn btn-info">Ver</button>
+                <Link to={"/articulos/show/"+_id} className="btn btn-info">Ver</Link>
                 <button onClick={(e)=>this.props.onEliminarClick(_id,e)} className="btn btn-danger">Eliminar</button>
             </div>
         );
