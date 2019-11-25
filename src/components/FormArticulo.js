@@ -29,7 +29,6 @@ class FormArticulo extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         addArticulo(this.state).then(res=>{
-            console.log(res.data);
             this.props.history.push('/articulos');
         }).catch(error=>console.log(error));
         e.currentTarget.reset();

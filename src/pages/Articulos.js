@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Articulo from '../components/Articulo';
-import {getArticulos} from '../requests/ArticulosService';
+import {getArticulos,deleteArticulo} from '../requests/ArticulosService';
 
 class Articulos extends React.Component {
     constructor(props) {
@@ -9,6 +9,7 @@ class Articulos extends React.Component {
         this.state = {
             articulos: []
         }
+        this.handleEliminarArticulo = this.handleEliminarArticulo.bind(this);
     }
 
     componentDidMount() {
@@ -20,9 +21,25 @@ class Articulos extends React.Component {
         }).catch(error=>console.log(error));
     }
 
+    handleEliminarArticulo(id){
+        deleteArticulo(id).then(res=>{
+            let cloneArticulos = this.state.articulos.slice();
+            let articulos = [];
+            cloneArticulos.forEach(articulo=>{
+                if(articulo._id!==id){
+                    articulos.push(articulo);
+                }
+            });
+            this.setState({
+                articulos:articulos
+            });
+        }).catch(error=>console.log(error));
+
+    }
+
     render() {
         const articulosItems = this.state.articulos.map((articulo) =>
-            <Articulo key={articulo._id} articulo={articulo} />
+            <Articulo key={articulo._id} articulo={articulo} onEliminarClick={this.handleEliminarArticulo} />
         );
         return (
             <div className="container">
