@@ -1,6 +1,6 @@
 import React from 'react';
 import Articulo from '../components/Articulo';
-import axios from 'axios';
+import {getArticulos} from '../requests/ArticulosService';
 
 class Articulos extends React.Component {
     constructor(props) {
@@ -11,13 +11,12 @@ class Articulos extends React.Component {
     }
 
     componentDidMount() {
-        let url = 'http://localhost:2000/articulos';
-        axios.get(url).then(res => {
+        getArticulos().then(res=>{
             let data = res.data;
             this.setState({
                 articulos: data.articulos
             });
-        }).catch(error => console.log(error));
+        }).catch(error=>console.log(error));
     }
 
     render() {
