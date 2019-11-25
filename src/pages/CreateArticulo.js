@@ -7,7 +7,7 @@ class CreateArticulo extends React.Component{
             <div className="container">
                 <h1>Formulario crear articulo</h1>
                 <hr/>
-                <FormArticulo/>
+                <FormArticulo form="create"/>
             </div>
         );
     }

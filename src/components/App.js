@@ -8,6 +8,7 @@ import Contacto from '../pages/Contacto';
 import Articulos from '../pages/Articulos';
 import CreateArticulo from '../pages/CreateArticulo';
 import ShowArticulo from '../pages/ShowArticulo';
+import EditArticulo from '../pages/EditArticulo';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <CreateArticulo/>
           </Route>
           <Route exact path="/articulos/show/:id" component={ShowArticulo}/>
+          <Route exact path="/articulos/edit/:id" component={EditArticulo}/>
           <Route exact path="/contacto">
               <Contacto/>
           </Route>

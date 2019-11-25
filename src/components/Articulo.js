@@ -8,7 +8,8 @@ class Articulo extends React.Component {
             <div className="card card-body">
                 <h5 className="card-title">{titulo}</h5>
                 <p className="card-text">{cuerpo}</p>
-                <Link to={"/articulos/show/"+_id} className="btn btn-info">Ver</Link>
+                <Link to={"/articulos/show/"+_id} className="btn btn-primary">Ver</Link>
+                <Link to={"/articulos/edit/"+_id} className="btn btn-info">Editar</Link>
                 <button onClick={(e)=>this.props.onEliminarClick(_id,e)} className="btn btn-danger">Eliminar</button>
             </div>
         );
