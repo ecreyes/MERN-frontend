@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import Navbar from './Navbar';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import Inicio from '../pages/Inicio';
 import Contacto from '../pages/Contacto';
 import Articulos from '../pages/Articulos';
+import CreateArticulo from '../pages/CreateArticulo';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route exact path="/articulos">
               <Articulos/>
+          </Route>
+          <Route exact path="/articulos/create">
+              <CreateArticulo/>
           </Route>
           <Route exact path="/contacto">
               <Contacto/>
